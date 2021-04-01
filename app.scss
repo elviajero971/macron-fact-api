@@ -1,0 +1,168 @@
+@import "./scss/theme";
+@import "./scss/layout";
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+body * {
+  box-sizing: border-box;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  
+}
+
+.app {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background-color: blue;
+  flex-direction: column;
+  .header{
+    background-color: $primaryColor;
+    height: 80px;
+    justify-content: center;
+  align-items: center;
+  }
+  .content{
+    padding: $paddingSimple;
+    background-color: aquamarine;
+    height: 100%;
+    .banner{
+      background-color: red;
+      height: 100%;
+      width: 50%;
+      justify-content: center;
+      align-items: center;
+    }
+    .display-quote{
+      flex-direction: column;
+      width: 50%;
+      .quote{
+        width: 100%;
+        flex:1;
+        .img{
+          width: 300px;
+          height: 300px;
+          background-color: green;
+          justify-content: center;
+          align-items: center;
+        }
+        .content-quote{
+          flex: 1;
+          background-color: grey;
+          height: 100%;
+          flex-direction: column;
+          justify-content: space-around;
+        }
+      }
+      .quote1 {
+        background-color: blueviolet;
+        justify-content: center;
+        align-items: center;
+      }
+      .quote2 {
+        background-color: pink;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+  .footer {
+    background-color: yellow;
+    height: 80px;  
+  }
+  
+
+  @media (max-width: $breakpoint-tablet) { 
+    .header{
+      background-color: $primaryColor;
+      height: 80px;
+    }
+    .content{
+      padding: $paddingSimple;
+      flex-direction: column;
+      background-color: aquamarine;
+      .banner{
+        background-color: red;
+        height: 200px;
+        width: 100%;
+      }
+      .display-quote{
+        width: 100%;
+        flex-direction: row;
+        .quote{
+          width: 100%;
+          height: 200px;
+          flex:1;
+          .img{
+            width: 200px;
+            height: 100%;
+            background-color: green;
+            justify-content: center;
+            align-items: center;
+          }
+          .content-quote{
+            flex: 1;
+            background-color: grey;
+            height: 100%;
+            flex-direction: column;
+            justify-content: space-around;
+          }
+        }
+        .quote1 {
+          background-color: blueviolet;
+        }
+        .quote2 {
+          background-color: pink;
+        }
+      }
+    }
+    .footer {
+      background-color: yellow;
+      height: 80px;  
+    }
+  }
+
+  @media (max-width: $breakpoint-mobile) { 
+    .header{
+      background-color: $primaryColor;
+      height: 80px;
+    }
+    .content{
+      padding: $paddingSimple;
+      flex-direction: column;
+      background-color: aquamarine;
+      .banner{
+        background-color: red;
+        height: 200px;
+        width: 100%;
+      }
+      .display-quote{
+        flex-direction: column;
+        .quote{
+          width: 100%;
+          height: 200px;
+        }
+        .quote1 {
+          background-color: blueviolet;
+        }
+        .quote2 {
+          background-color: pink;
+        }
+      }
+    }
+    .footer {
+      background-color: yellow;
+      height: 80px;  
+    }
+  }
+  
+}
+
+

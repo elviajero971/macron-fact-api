@@ -1,0 +1,234 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+body * {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.app {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background-color: blue;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.app .header {
+  background-color: #18b20a;
+  height: 80px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.app .content {
+  padding: 10px;
+  background-color: aquamarine;
+  height: 100%;
+}
+
+.app .content .banner {
+  background-color: red;
+  height: 100%;
+  width: 50%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.app .content .display-quote {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 50%;
+}
+
+.app .content .display-quote .quote {
+  width: 100%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.app .content .display-quote .quote .img {
+  width: 300px;
+  height: 300px;
+  background-color: green;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.app .content .display-quote .quote .content-quote {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  background-color: grey;
+  height: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.app .content .display-quote .quote1 {
+  background-color: blueviolet;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.app .content .display-quote .quote2 {
+  background-color: pink;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.app .footer {
+  background-color: yellow;
+  height: 80px;
+}
+
+@media (max-width: 1000px) {
+  .app .header {
+    background-color: #18b20a;
+    height: 80px;
+  }
+  .app .content {
+    padding: 10px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    background-color: aquamarine;
+  }
+  .app .content .banner {
+    background-color: red;
+    height: 200px;
+    width: 100%;
+  }
+  .app .content .display-quote {
+    width: 100%;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .app .content .display-quote .quote {
+    width: 100%;
+    height: 200px;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+  }
+  .app .content .display-quote .quote .img {
+    width: 200px;
+    height: 100%;
+    background-color: green;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .app .content .display-quote .quote .content-quote {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    background-color: grey;
+    height: 100%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+  .app .content .display-quote .quote1 {
+    background-color: blueviolet;
+  }
+  .app .content .display-quote .quote2 {
+    background-color: pink;
+  }
+  .app .footer {
+    background-color: yellow;
+    height: 80px;
+  }
+}
+
+@media (max-width: 700px) {
+  .app .header {
+    background-color: #18b20a;
+    height: 80px;
+  }
+  .app .content {
+    padding: 10px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    background-color: aquamarine;
+  }
+  .app .content .banner {
+    background-color: red;
+    height: 200px;
+    width: 100%;
+  }
+  .app .content .display-quote {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .app .content .display-quote .quote {
+    width: 100%;
+    height: 200px;
+  }
+  .app .content .display-quote .quote1 {
+    background-color: blueviolet;
+  }
+  .app .content .display-quote .quote2 {
+    background-color: pink;
+  }
+  .app .footer {
+    background-color: yellow;
+    height: 80px;
+  }
+}
+/*# sourceMappingURL=app.css.map */
