@@ -1,5 +1,11 @@
 @import "./scss/theme";
 @import "./scss/layout";
+@import "./scss/animationBtnNavBar";
+body{
+  script{
+    display: none;
+  }
+}
 
 html,
 body {
@@ -14,79 +20,51 @@ body * {
   display: flex;
   margin: 0;
   padding: 0;
-  
 }
 
-.app {
-  display: flex;
-  width: 100vw;
-  height: 100vh;
-  background-color: blue;
-  flex-direction: column;
-  .header{
-    background-color: $primaryColor;
-    height: 80px;
-    justify-content: center;
-    align-items: center;
-  }
-  .content{
-    padding: $paddingSimple;
-    background-color: aquamarine;
+// css display mobile
+
+  .app {
+    width: 100vw;
     height: 100%;
-    .banner{
-      background-color: red;
-      height: 100%;
-      width: 50%;
-      justify-content: center;
-      align-items: center;
-    }
-    .display-quote{
-      overflow-y: scroll;
-      flex-direction: column;
-      width: 50%;
-      .quote{
-        width: 100%;
-        flex:1;
-        border: $doubleBorder;
-        .img{
-          width: 300px;
-          height: 300px;
-          background-color: green;
-          justify-content: center;
-          align-items: center;
-        }
-        .content-quote{
-          flex: 1;
-          background-color: grey;
-          height: 100%;
-          flex-direction: column;
-          justify-content: space-around;
-        }
-      }
-      .quote1 {
-        background-color: blueviolet;
-        justify-content: center;
-        align-items: center;
-      }
-      .quote2 {
-        background-color: pink;
-        justify-content: center;
-        align-items: center;
-      }
-    }
-  }
-  .footer {
-    background-color: yellow;
-    height: 80px;  
-  }
-
-  
-  
-
-  @media (max-width: $breakpoint-tablet) { 
+    background-color: blue;
+    flex-direction: column;
     .header{
       background-color: $primaryColor;
-      height: 80px;
+      height: $header-height;
+      flex-direction: column;
+
+      padding: $paddingSimple;
+      .header-content{
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        .header-icon{
+          display: flex;
+          @include buttonNavBar;
+          padding-right: $paddingSimple;
+        }
+        .header-list{
+          display: none;
+        }
+      }
+      #toggle-header{
+        display: none;
+        position: absolute;
+        flex-direction: column;
+        position: relative;
+        .header-item{
+          height: 40px;
+        }
+      }
+      #toggle-header.active{
+        display: flex;
+      }
+      .search-bar{
+        height: 80%;
+        flex: 1;
+      }
+
     }
     .content{
       padding: $paddingSimple;
@@ -98,14 +76,11 @@ body * {
         width: 100%;
       }
       .display-quote{
-        width: 100%;
-        height: 100%;
-        flex-direction: row;
-        flex-wrap: wrap;
+        flex-direction: column;
         .quote{
           width: 100%;
           height: 200px;
-          flex: 1 0 48%;
+          flex: 1;
           .img{
             width: 200px;
             height: 100%;
@@ -114,6 +89,7 @@ body * {
             align-items: center;
           }
           .content-quote{
+            padding: $paddingSimple;
             flex: 1;
             background-color: grey;
             height: 100%;
@@ -131,30 +107,83 @@ body * {
     }
     .footer {
       background-color: yellow;
-      height: 80px;  
+      height: $footer-height;
+      .footer-content{
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+      }   
     }
   }
 
-  @media (max-width: $breakpoint-mobile) { 
+// css display tablet
+
+@media (min-width: $breakpoint-mobile) { 
+
+  .app {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background-color: blue;
+    flex-direction: column;
     .header{
       background-color: $primaryColor;
-      height: 80px;
+      height: $header-height;
+      .header-content{
+        width: 100%;
+        height: 100%;
+        .header-icon{
+          display: none;
+        }
+        .header-list{
+          display: flex;
+          height: 100%;
+          .header-item{
+            width: 100px;
+            height: 100%;
+          }
+        }
+      }
+      .toggle-header-item{
+        display: none;
+      }
     }
     .content{
       padding: $paddingSimple;
       flex-direction: column;
       background-color: aquamarine;
+      height: 100%;
+      justify-content: space-around;
       .banner{
         background-color: red;
-        height: 200px;
+        height: calc(48vh - 80px);
         width: 100%;
       }
       .display-quote{
-        flex-direction: column;
+        width: 100%;
+        height: calc(48vh - 80px);
+        flex-direction: row;
+        flex-wrap: wrap;
+        overflow-y: auto;
         .quote{
           width: 100%;
           height: 200px;
-          flex: 1;
+          flex: 1 0 48%;
+          .img{
+            width: 200px;
+            height: 100%;
+            background-color: green;
+            justify-content: center;
+            align-items: center;
+          }
+          .content-quote{
+            padding: $paddingSimple;
+            flex: 1;
+            background-color: grey;
+            height: 100%;
+            flex-direction: column;
+            justify-content: space-around;
+          }
         }
         .quote1 {
           background-color: blueviolet;
@@ -166,12 +195,118 @@ body * {
     }
     .footer {
       background-color: yellow;
-      height: 80px;  
+      height: $footer-height;
+      .footer-content{
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+      }   
     }
   }
-
-  
-  
 }
+
+// css display desktop
+@media (min-width: $breakpoint-tablet) {
+  .app {
+    width: 100vw;
+    height: 100vh;
+    background-color: blue;
+    flex-direction: column;
+    .header{
+      position: fixed;
+      width: 100%;
+      background-color: $primaryColor;
+      height: $header-height;
+      justify-content: center;
+      flex-direction: column;
+      .header-content{
+        width: 100%;
+        height: 100%;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        .header-icon{
+          display: none;
+        }
+        .header-list{
+          height: 100%;
+          align-items: center;
+          justify-content: space-around;
+          .header-item{
+            width: 100px;
+            height: 70%;
+            justify-content: center;
+            align-items: center;
+          }
+        }
+        
+      }
+      .toggle-header-item{
+        display: none;
+      }
+    }
+    .content{
+      padding-top: $header-height;
+      background-color: aquamarine;
+      height: calc(100%);
+      flex-direction: row;
+      justify-content: space-around;
+      .banner{
+        background-color: red;
+        height: calc(100vh - 160px);
+        width: 49%;
+        justify-content: center;
+        align-items: center;
+      }
+      .display-quote{
+        overflow-y: auto;
+        width: 49%;
+        height: calc(100vh - 160px);
+        .quote{
+          width: 100%;
+          flex:1;
+          border: $doubleBorder;
+          .img{
+            width: 300px;
+            flex: 1;
+            background-color: green;
+            justify-content: center;
+            align-items: center;
+          }
+          .content-quote{
+            padding: $paddingDouble;
+            flex: 1;
+            background-color: grey;
+            height: 100%;
+            flex-direction: column;
+            justify-content: space-around;
+          }
+        }
+        .quote1 {
+          background-color: blueviolet;
+          justify-content: center;
+          align-items: center;
+        }
+        .quote2 {
+          background-color: pink;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+    }
+    .footer {
+      background-color: yellow;
+      height: $footer-height;
+      .footer-content{
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+      }  
+    }
+  }
+}
+
+
+
 
 
