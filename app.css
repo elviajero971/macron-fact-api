@@ -264,6 +264,10 @@ body * {
     width: 100px;
     height: 100%;
   }
+  .app .header .header-content .search-bar {
+    height: 80%;
+    width: 300px;
+  }
   .app .header .toggle-header-item {
     display: none;
   }
@@ -409,7 +413,7 @@ body * {
     display: none;
   }
   .app .content {
-    padding-top: 80px;
+    padding-top: 90px;
     background-color: aquamarine;
     height: calc(100%);
     -webkit-box-orient: horizontal;
@@ -421,7 +425,7 @@ body * {
   }
   .app .content .banner {
     background-color: red;
-    height: calc(100vh - 160px);
+    height: calc(100vh - 180px);
     width: 49%;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
@@ -433,7 +437,7 @@ body * {
   .app .content .display-quote {
     overflow-y: auto;
     width: 49%;
-    height: calc(100vh - 160px);
+    height: calc(100vh - 180px);
   }
   .app .content .display-quote .quote {
     width: 100%;

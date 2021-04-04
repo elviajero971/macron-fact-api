@@ -143,6 +143,10 @@ body * {
             height: 100%;
           }
         }
+        .search-bar{
+          height: 80%;
+          width: 300px;
+        }
       }
       .toggle-header-item{
         display: none;
@@ -246,14 +250,14 @@ body * {
       }
     }
     .content{
-      padding-top: $header-height;
+      padding-top: $padding-top-content-desktop;
       background-color: aquamarine;
       height: calc(100%);
       flex-direction: row;
       justify-content: space-around;
       .banner{
         background-color: red;
-        height: calc(100vh - 160px);
+        height: $height-banner-desktop;
         width: 49%;
         justify-content: center;
         align-items: center;
@@ -261,7 +265,7 @@ body * {
       .display-quote{
         overflow-y: auto;
         width: 49%;
-        height: calc(100vh - 160px);
+        height: calc(100vh - 180px);
         .quote{
           width: 100%;
           flex:1;

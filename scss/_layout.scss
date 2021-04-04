@@ -6,3 +6,7 @@ $breakpoint-mobile: 700px;
 
 $header-height: 80px;
 $footer-height: 80px;
+
+$height-banner-desktop: calc(100vh - 180px);
+
+$padding-top-content-desktop: $header-height+$paddingSimple;
