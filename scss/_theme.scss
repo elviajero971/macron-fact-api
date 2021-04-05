@@ -1,15 +1,18 @@
-$primaryColor: rgb(24,178, 10);
-$secondaryColor: rgb(218, 134, 24);
-
+$primaryColor: rgb(12 , 24, 54);
+$secondaryColor: rgb(255, 64, 0);
+$lightColor: rgb(250, 170, 141);
+$lightGrey: rgb(254, 239, 221);
 $darkColor: rgb(18, 18, 19);
 $darkColorOpacity: rgba($darkColor, .7);
 
-$lightColor: rgb(222, 222, 224);
 
-$simpleBorder: solid 1px $darkColor;
-
-$doubleBorder: solid 2px $darkColor;
+$simpleBorder: solid 1px $primaryColor;
+$doubleBorder: solid 2px $primaryColor;
 
 $paddingSimple: 10px;
 $paddingDouble: 20px;
+
+$round-size-small: 10px;
+$round-size-big: 20px;
+
 

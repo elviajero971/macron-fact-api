@@ -22,20 +22,22 @@ body * {
   padding: 0;
 }
 
+.fa-2x {
+  font-size: 6vw;
+}
+
 // css display mobile
 
   .app {
     width: 100vw;
     height: 100%;
-    background-color: blue;
     flex-direction: column;
     .header{
-      background-color: $primaryColor;
+      background-color: $secondaryColor;
       height: $header-height;
       flex-direction: column;
-
-      padding: $paddingSimple;
       .header-content{
+        padding: $paddingSimple;
         width: 100%;
         justify-content: center;
         align-items: center;
@@ -55,6 +57,7 @@ body * {
         position: relative;
         .header-item{
           height: 40px;
+          background-color: $lightGrey;
         }
       }
       #toggle-header.active{
@@ -63,21 +66,30 @@ body * {
       .search-bar{
         height: 80%;
         flex: 1;
+        background-color: $lightColor;
+        border-radius: $round-size-small;
+        padding: 0 $paddingDouble;
       }
 
     }
     .content{
       padding: $paddingSimple;
       flex-direction: column;
-      background-color: aquamarine;
+      background-color: $lightColor;
       .banner{
         background-color: red;
-        height: 200px;
+        height: auto;
         width: 100%;
+        img{
+          width: 100%;
+          height: 100%;
+          object-fit:cover;
+        }
       }
       .display-quote{
         flex-direction: column;
         .quote{
+          border: $simpleBorder;
           width: 100%;
           height: 200px;
           flex: 1;
@@ -87,31 +99,54 @@ body * {
             background-color: green;
             justify-content: center;
             align-items: center;
+            img{
+              width: 100%;
+              height: 100%;
+              object-fit:cover;
+            }
           }
           .content-quote{
             padding: $paddingSimple;
             flex: 1;
-            background-color: grey;
+            background-color: $lightGrey;
             height: 100%;
             flex-direction: column;
             justify-content: space-around;
+            .quote-author{
+              display: flex;
+              align-items: center;
+              i{
+                color: $primaryColor;
+              }
+
+              .quote-author-value{
+                padding-left: $paddingDouble;
+              }
+            }
+            .quote-date{
+              display: flex;
+              align-items: center;
+              i{
+                color: $primaryColor;
+              }
+              .quote-date-value{
+                padding-left: $paddingDouble;
+              }
+            }
           }
-        }
-        .quote1 {
-          background-color: blueviolet;
-        }
-        .quote2 {
-          background-color: pink;
         }
       }
     }
     .footer {
-      background-color: yellow;
+      background-color: $secondaryColor;
       height: $footer-height;
       .footer-content{
         width: 100%;
         justify-content: center;
         align-items: center;
+        p{
+          font-size: 4vw;
+        }
       }   
     }
   }
@@ -119,15 +154,16 @@ body * {
 // css display tablet
 
 @media (min-width: $breakpoint-mobile) { 
-
+  .fa-2x {
+    font-size: 3.5vw;
+  }
   .app {
     display: flex;
     width: 100vw;
     height: 100vh;
-    background-color: blue;
     flex-direction: column;
     .header{
-      background-color: $primaryColor;
+      background-color: $secondaryColor;
       height: $header-height;
       .header-content{
         width: 100%;
@@ -137,10 +173,17 @@ body * {
         }
         .header-list{
           display: flex;
+          align-items: center;
           height: 100%;
           .header-item{
-            width: 100px;
-            height: 100%;
+            align-items: center;
+            justify-content: center;
+            width: 10vw;
+            margin-right: $paddingSimple;
+            color: $lightGrey;
+            background-color: $primaryColor;
+            border-radius: $round-size-small;
+            height: 60%;
           }
         }
         .search-bar{
@@ -159,9 +202,13 @@ body * {
       height: 100%;
       justify-content: space-around;
       .banner{
-        background-color: red;
         height: calc(48vh - 80px);
         width: 100%;
+        img{
+          width: 100%;
+          height: 100%;
+          object-fit:cover;
+        }
       }
       .display-quote{
         width: 100%;
@@ -173,32 +220,31 @@ body * {
           width: 100%;
           height: 200px;
           flex: 1 0 48%;
+          border: $simpleBorder;
           .img{
             width: 200px;
             height: 100%;
-            background-color: green;
             justify-content: center;
             align-items: center;
+            img{
+              width: 100%;
+              height: 100%;
+              object-fit:cover;
+            }
           }
           .content-quote{
             padding: $paddingSimple;
             flex: 1;
-            background-color: grey;
+            background-color: $lightGrey;
             height: 100%;
             flex-direction: column;
             justify-content: space-around;
           }
         }
-        .quote1 {
-          background-color: blueviolet;
-        }
-        .quote2 {
-          background-color: pink;
-        }
       }
     }
     .footer {
-      background-color: yellow;
+      background-color: $secondaryColor;
       height: $footer-height;
       .footer-content{
         width: 100%;
@@ -211,15 +257,17 @@ body * {
 
 // css display desktop
 @media (min-width: $breakpoint-tablet) {
+  .fa-2x {
+    font-size: 3vw;
+  }
   .app {
     width: 100vw;
     height: 100vh;
-    background-color: blue;
     flex-direction: column;
     .header{
       position: fixed;
       width: 100%;
-      background-color: $primaryColor;
+      background-color: $secondaryColor;
       height: $header-height;
       justify-content: center;
       flex-direction: column;
@@ -237,10 +285,14 @@ body * {
           align-items: center;
           justify-content: space-around;
           .header-item{
-            width: 100px;
-            height: 70%;
+            width: 120px;
+            height: 60%;
             justify-content: center;
             align-items: center;
+            margin-right: $paddingSimple;
+            color: $lightGrey;
+            background-color: $primaryColor;
+            border-radius: $round-size-small;
           }
         }
         
@@ -251,16 +303,20 @@ body * {
     }
     .content{
       padding-top: $padding-top-content-desktop;
-      background-color: aquamarine;
+      background-color: $lightColor;
       height: calc(100%);
       flex-direction: row;
       justify-content: space-around;
       .banner{
-        background-color: red;
         height: $height-banner-desktop;
         width: 49%;
         justify-content: center;
         align-items: center;
+        img{
+          width: 100%;
+          height: 100%;
+          object-fit:cover;
+        }
       }
       .display-quote{
         overflow-y: auto;
@@ -273,38 +329,36 @@ body * {
           .img{
             width: 300px;
             flex: 1;
-            background-color: green;
             justify-content: center;
             align-items: center;
+            img{
+              width: 100%;
+              height: 100%;
+              object-fit:cover;
+            }
           }
           .content-quote{
             padding: $paddingDouble;
             flex: 1;
-            background-color: grey;
+            background-color: $lightGrey;
             height: 100%;
             flex-direction: column;
             justify-content: space-around;
           }
         }
-        .quote1 {
-          background-color: blueviolet;
-          justify-content: center;
-          align-items: center;
-        }
-        .quote2 {
-          background-color: pink;
-          justify-content: center;
-          align-items: center;
-        }
       }
     }
     .footer {
-      background-color: yellow;
+      background-color: $secondaryColor;
       height: $footer-height;
+      color: $primaryColor;
       .footer-content{
         width: 100%;
         justify-content: center;
         align-items: center;
+        p{
+          font-size: 2.5vw;
+        }
       }  
     }
   }
