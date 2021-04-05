@@ -22,9 +22,7 @@ body * {
   padding: 0;
 }
 
-.fa-2x {
-  font-size: 6vw;
-}
+
 
 // css display mobile
 
@@ -55,6 +53,7 @@ body * {
         position: absolute;
         flex-direction: column;
         position: relative;
+        
         .header-item{
           height: 40px;
           background-color: $lightGrey;
@@ -62,6 +61,10 @@ body * {
       }
       #toggle-header.active{
         display: flex;
+        .header-item{
+          @include fontSize-mobile;
+        }
+        
       }
       .search-bar{
         height: 80%;
@@ -115,10 +118,7 @@ body * {
             .quote-author{
               display: flex;
               align-items: center;
-              i{
-                color: $primaryColor;
-              }
-
+              @include icon-mobile;
               .quote-author-value{
                 padding-left: $paddingDouble;
               }
@@ -127,7 +127,7 @@ body * {
               display: flex;
               align-items: center;
               i{
-                color: $primaryColor;
+                color: $secondaryColor;
               }
               .quote-date-value{
                 padding-left: $paddingDouble;
@@ -146,6 +146,7 @@ body * {
         align-items: center;
         p{
           font-size: 4vw;
+          color: $lightGrey;
         }
       }   
     }
@@ -176,6 +177,7 @@ body * {
           align-items: center;
           height: 100%;
           .header-item{
+            @include fontSize-tablet;
             align-items: center;
             justify-content: center;
             width: 10vw;
@@ -222,7 +224,7 @@ body * {
           flex: 1 0 48%;
           border: $simpleBorder;
           .img{
-            width: 200px;
+            width: 20vw;
             height: 100%;
             justify-content: center;
             align-items: center;
@@ -257,9 +259,7 @@ body * {
 
 // css display desktop
 @media (min-width: $breakpoint-tablet) {
-  .fa-2x {
-    font-size: 3vw;
-  }
+  
   .app {
     width: 100vw;
     height: 100vh;
@@ -285,6 +285,7 @@ body * {
           align-items: center;
           justify-content: space-around;
           .header-item{
+            @include fontSize-desktop;
             width: 120px;
             height: 60%;
             justify-content: center;
@@ -322,6 +323,7 @@ body * {
         overflow-y: auto;
         width: 49%;
         height: calc(100vh - 180px);
+        @include icon-desktop;
         .quote{
           width: 100%;
           flex:1;
