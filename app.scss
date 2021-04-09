@@ -28,7 +28,7 @@ body * {
 
   .app {
     width: 100vw;
-    height: 100%;
+    height: 100vh;
     flex-direction: column;
     .header{
       background-color: $secondaryColor;
@@ -40,7 +40,6 @@ body * {
         justify-content: center;
         align-items: center;
         .header-icon{
-          display: flex;
           @include buttonNavBar;
           padding-right: $paddingSimple;
         }
@@ -53,7 +52,6 @@ body * {
         position: absolute;
         flex-direction: column;
         position: relative;
-        
         .header-item{
           height: 40px;
           background-color: $lightGrey;
@@ -64,7 +62,6 @@ body * {
         .header-item{
           @include fontSize-mobile;
         }
-        
       }
       .search-bar{
         height: 80%;
@@ -76,61 +73,69 @@ body * {
 
     }
     .content{
-      padding: $paddingSimple;
-      flex-direction: column;
+      overflow-y: auto;
       background-color: $lightColor;
-      .banner{
-        background-color: red;
+      .scroll{
         height: auto;
-        width: 100%;
-        img{
-          width: 100%;
-          height: 100%;
-          object-fit:cover;
-        }
-      }
-      .display-quote{
+        padding: $paddingSimple;
         flex-direction: column;
-        .quote{
-          border: $simpleBorder;
+        .banner{
+          height: auto;
           width: 100%;
-          height: 200px;
-          flex: 1;
-          .img{
-            width: 200px;
+          img{
+            width: 100%;
             height: 100%;
-            background-color: green;
-            justify-content: center;
-            align-items: center;
-            img{
-              width: 100%;
-              height: 100%;
-              object-fit:cover;
-            }
+            object-fit:cover;
           }
-          .content-quote{
-            padding: $paddingSimple;
-            flex: 1;
-            background-color: $lightGrey;
-            height: 100%;
-            flex-direction: column;
-            justify-content: space-around;
-            .quote-author{
-              display: flex;
-              align-items: center;
-              @include icon-mobile;
-              .quote-author-value{
-                padding-left: $paddingDouble;
+        }
+        .display-quote{
+          width: 100%;
+          flex-direction: column;
+          .scroll{
+            padding: 0;
+            padding-top: $paddingSimple;
+            padding-bottom: $paddingSimple;
+            .quote{
+              border: $simpleBorder;
+              width: 100%;
+              height: 200px;
+              flex: 1;
+              .img{
+                width: 200px;
+                height: 100%;
+                justify-content: center;
+                align-items: center;
+                img{
+                  width: 100%;
+                  height: 100%;
+                  object-fit:cover;
+                }
               }
-            }
-            .quote-date{
-              display: flex;
-              align-items: center;
-              i{
-                color: $secondaryColor;
-              }
-              .quote-date-value{
-                padding-left: $paddingDouble;
+              .content-quote{
+                padding: $paddingSimple;
+                flex: 1;
+                background-color: $lightGrey;
+                height: 100%;
+                flex-direction: column;
+                justify-content: space-around;
+                .quote-author{
+                  display: flex;
+                  align-items: center;
+                  @include icon-mobile;
+                  .quote-author-value{
+                    padding-left: $paddingDouble;
+                  }
+                }
+                .quote-date{
+                  display: flex;
+                  align-items: center;
+                  i{
+                    color: $secondaryColor;
+                  }
+                  .quote-date-value{
+                    padding-left: $paddingDouble;
+                  }
+                }
               }
             }
           }
@@ -142,6 +147,7 @@ body * {
       height: $footer-height;
       .footer-content{
         width: 100%;
+        height: 100%;
         justify-content: center;
         align-items: center;
         p{
@@ -159,15 +165,8 @@ body * {
     font-size: 3.5vw;
   }
   .app {
-    display: flex;
-    width: 100vw;
-    height: 100vh;
-    flex-direction: column;
     .header{
-      background-color: $secondaryColor;
-      height: $header-height;
       .header-content{
-        width: 100%;
         height: 100%;
         .header-icon{
           display: none;
@@ -198,167 +197,104 @@ body * {
       }
     }
     .content{
+      height: calc(100vh - #{$header-height} - #{$footer-height});
       overflow-y: auto;
-      padding: $paddingSimple;
-      flex-direction: column;
-      background-color: aquamarine;
-      height: 100%;
-      justify-content: space-around;
-      .banner{
-        height: calc(48vh - 80px);
-        width: 100%;
-        img{
-          width: 100%;
-          height: 100%;
-          object-fit:cover;
-        }
-      }
-      .display-quote{
-        width: 100%;
-        height: calc(48vh - 80px);
-        flex-direction: row;
-        flex-wrap: wrap;
-        
-        .quote{
-          width: 100%;
-          height: 200px;
-          flex: 1 0 48%;
-          border: $simpleBorder;
-          .img{
-            width: 20vw;
+      .scroll{
+        flex-direction: column;
+        .display-quote{
+          .scroll{
+            padding: 0;
+            padding-top: $paddingSimple;
+            padding-bottom: $paddingSimple;
             height: 100%;
-            justify-content: center;
-            align-items: center;
-            img{
-              width: 100%;
-              height: 100%;
-              object-fit:cover;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            .quote{
+              flex: none;
+              width: 49%;
+              .img{
+                width: 20vw;
+              }
             }
-          }
-          .content-quote{
-            padding: $paddingSimple;
-            flex: 1;
-            background-color: $lightGrey;
-            height: 100%;
-            flex-direction: column;
-            justify-content: space-around;
           }
         }
       }
     }
-    .footer {
-      background-color: $secondaryColor;
+    .footer{
       height: $footer-height;
-      .footer-content{
-        width: 100%;
-        justify-content: center;
-        align-items: center;
-      }   
     }
   }
 }
 
 // css display desktop
 @media (min-width: $breakpoint-tablet) {
-  
   .app {
-    width: 100vw;
-    height: 100vh;
-    flex-direction: column;
     .header{
-      position: fixed;
-      width: 100%;
-      background-color: $secondaryColor;
-      height: $header-height;
-      justify-content: center;
-      flex-direction: column;
       .header-content{
-        width: 100%;
-        height: 100%;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        .header-icon{
-          display: none;
-        }
         .header-list{
-          height: 100%;
-          align-items: center;
-          justify-content: space-around;
           .header-item{
             @include fontSize-desktop;
-            width: 120px;
-            height: 60%;
-            justify-content: center;
-            align-items: center;
-            margin-right: $paddingSimple;
-            color: $lightGrey;
-            background-color: $primaryColor;
-            border-radius: $round-size-small;
           }
         }
-        
-      }
-      .toggle-header-item{
-        display: none;
       }
     }
     .content{
-      padding-top: $padding-top-content-desktop;
-      background-color: $lightColor;
-      height: calc(100%);
-      flex-direction: row;
+      padding: $paddingSimple;
+      height: $height-display-quote-desktop;
       justify-content: space-around;
-      .banner{
-        height: $height-banner-desktop;
-        width: 49%;
-        justify-content: center;
-        align-items: center;
-        img{
-          width: 100%;
-          height: 100%;
-          object-fit:cover;
-        }
-      }
-      .display-quote{
-        overflow-y: auto;
-        width: 49%;
-        height: calc(100vh - 180px);
-        @include icon-desktop;
-        .quote{
-          width: 100%;
-          flex:1;
-          border: $doubleBorder;
-          .img{
-            width: 300px;
-            flex: 1;
-            justify-content: center;
-            align-items: center;
-            img{
-              width: 100%;
-              height: 100%;
-              object-fit:cover;
-            }
-          }
-          .content-quote{
-            padding: $paddingDouble;
-            flex: 1;
-            background-color: $lightGrey;
+      .scroll{
+        height: $height-display-quote-desktop;
+        width: 100%;
+        flex-direction: row;
+        padding: 0;
+        justify-content: space-around;
+        .banner{
+          height: $height-banner-desktop;
+          width: 49%;
+          justify-content: center;
+          align-items: center;
+          img{
+            width: 100%;
             height: 100%;
-            flex-direction: column;
-            justify-content: space-around;
+            object-fit:cover;
+          }
+        }
+        .display-quote{
+          overflow-y: auto;
+          width: 49%;
+          height: $height-display-quote-desktop;
+          @include icon-desktop;
+          .scroll{
+            height: auto;
+            .quote{
+              width: 100%;
+              .img{
+                width: 300px;
+                flex: 1;
+                justify-content: center;
+                align-items: center;
+                img{
+                  width: 100%;
+                  height: 100%;
+                  object-fit:cover;
+                }
+              }
+              .content-quote{
+                padding: $paddingDouble;
+                flex: 1;
+                background-color: $lightGrey;
+                height: 100%;
+                flex-direction: column;
+                justify-content: space-around;
+              }
+            }
           }
         }
       }
     }
     .footer {
-      background-color: $secondaryColor;
-      height: $footer-height;
-      color: $primaryColor;
       .footer-content{
-        width: 100%;
-        justify-content: center;
-        align-items: center;
         p{
           font-size: 2.5vw;
         }
@@ -366,7 +302,6 @@ body * {
     }
   }
 }
-
 
 
 

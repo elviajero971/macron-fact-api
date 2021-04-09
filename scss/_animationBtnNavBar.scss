@@ -20,9 +20,7 @@
       border-radius: 6px;
       opacity: 1;
       left: 0;
-      -webkit-transform: rotate(0deg);
-      -moz-transform: rotate(0deg);
-      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
       transform: rotate(0deg);
       -webkit-transition: .25s ease-in-out;
       -moz-transition: .25s ease-in-out;
