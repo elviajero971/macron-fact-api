@@ -345,6 +345,7 @@ body * {
     display: none;
   }
   .app .content {
+    overflow-y: auto;
     padding: 10px;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -374,7 +375,6 @@ body * {
             flex-direction: row;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
-    overflow-y: auto;
   }
   .app .content .display-quote .quote {
     width: 100%;
@@ -477,7 +477,7 @@ body * {
         justify-content: space-around;
   }
   .app .header .header-content .header-list .header-item {
-    font-size: 2vw;
+    font-size: 1vw;
     width: 120px;
     height: 60%;
     -webkit-box-pack: center;
